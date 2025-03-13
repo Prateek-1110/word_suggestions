@@ -1,0 +1,19 @@
+#suggestions {
+    list-style: none;
+    padding: 0;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    width: 200px;
+    background: white;
+    position: absolute;
+    z-index: 1000;
+}
+
+#suggestions li {
+    padding: 8px;
+    cursor: pointer;
+}
+
+#suggestions li:hover {
+    background: lightgray;
+}
