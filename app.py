@@ -2,13 +2,12 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
-# Load words from dictionary file
+# loading words from global dict
 def load_words():
     with open("words_alpha.txt", "r") as f:
         words = [line.strip().lower() for line in f]
     return sorted(words)
 
-# Global dictionary
 dictionary = load_words()
 
 # Function to get suggestions
@@ -21,7 +20,7 @@ def get_suggestions(prefix, max_suggestions=5):
 def suggest():
     query = request.args.get('query', '').strip().lower()
     if not query:
-        return jsonify([])  # Return empty list if query is empty
+        return jsonify([]) 
     suggestions = get_suggestions(query)
     return jsonify(suggestions)
 

@@ -1,6 +1,5 @@
 #include "search.hpp"
-
-// Helper function to find the first occurrence of a prefix using binary search
+//this finds the first occurence of prefix using binary search
 int lower_bound_index(const vector<string>& words, const string& prefix) {
     int left = 0, right = words.size();
     string lower_prefix = to_lowercase(prefix);
@@ -18,12 +17,11 @@ vector<string> get_suggestions(const vector<string>& words, const string& prefix
     vector<string> suggestions;
     int index = lower_bound_index(words, prefix);
     string lower_prefix = to_lowercase(prefix);
-    // Collect up to max_suggestions words
     for (int i = index; i < words.size() && suggestions.size() < max_suggestions; i++) {
         if (to_lowercase(words[i]).find(prefix) == 0) {
             suggestions.push_back(words[i]);
         } else {
-            break; // Stop if the prefix no longer matches
+            break; 
         }
     }
     return suggestions;
